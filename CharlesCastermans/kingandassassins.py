@@ -371,15 +371,15 @@ class KingAndAssassinsClient(game.GameClient):
         if self.state[people][postions[0][0]][postions[0][1]] not in POPULATION:
             if self.pos_vill(state,positions[0])[0]>positions[0][0]:
                 self.strat['action'].append(('move',self.pos_vill(state,positions[0])[0],self.pos_vill(state,positions[0])[1],'N'))
-            else if self.pos_vill(state,positions[0])[0]<positions[0][0]:
+            elif self.pos_vill(state,positions[0])[0]<positions[0][0]:
                 self.strat['action'].append(('move',self.pos_vill(state,positions[0])[0],self.pos_vill(state,positions[0])[1],'S'))
-            else if self.pos_vill(state,positions[0])[1]<positions[0][1]:
+            elif self.pos_vill(state,positions[0])[1]<positions[0][1]:
                 self.strat['action'].append(('move',self.pos_vill(state,positions[0])[0],self.pos_vill(state,positions[0])[1],'E'))
-            else
+            else:
                 self.strat['action'].append(('move',self.pos_vill(state,positions[0])[0],self.pos_vill(state,positions[0])[1],'W'))
-        else if self.state[people][postions[1][0]][postions[1][1]] not in POPULATION:
+        elif self.state[people][postions[1][0]][postions[1][1]] not in POPULATION:
             pass
-        else if self.state[people][postions[0][0]][postions[0][1]] not in POPULATION:        
+        elif self.state[people][postions[0][0]][postions[0][1]] not in POPULATION:        
             pass
             
 
@@ -422,7 +422,7 @@ class KingAndAssassinsClient(game.GameClient):
                     for j in range(10):
                         if self.state['people'][i][j] in {'monk', 'hooker', 'fishwoman'}:
                             return json.dumps({'actions': [('reveal', i, j)]}, separators=(',', ':'))
-                return json.dumps({'actions': self.strat_ass(self.state)}, separators=(',', ':'))
+                return json.dumps({'actions':  self.strat_ass(self.state)}, separators=(',', ':'))
             else:
                 return json.dumps({'actions': self.strat_roi(self.state)}, separators=(',', ':'))
 
